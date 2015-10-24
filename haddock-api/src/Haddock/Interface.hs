@@ -174,7 +174,10 @@ processModule verbosity modsum flags modMap instIfaceMap = do
     let (haddockable, haddocked) = ifaceHaddockCoverage interface
         percentage = round (fromIntegral haddocked * 100 / fromIntegral haddockable :: Double) :: Int
         modString = moduleString (ifaceMod interface)
-        coverageMsg = printf " %3d%% (%3d /%3d) in '%s'" percentage haddocked haddockable modString
+        csvCoverage = Flag_CSVCoverage `elem` flags
+        coverageFmt = if csvCoverage then "%3d%%,%3d,%3d,'%s'"
+                                     else " %3d%% (%3d /%3d) in '%s'"
+        coverageMsg = printf coverageFmt percentage haddocked haddockable modString
         header = case ifaceDoc interface of
           Documentation Nothing _ -> False
           _ -> True

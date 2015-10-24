@@ -94,6 +94,7 @@ data Flag
   | Flag_NoPrintMissingDocs
   | Flag_PackageName String
   | Flag_PackageVersion String
+  | Flag_CSVCoverage
   deriving (Eq, Show)
 
 
@@ -148,6 +149,8 @@ options backwardsCompat =
       "page heading",
     Option ['q']  ["qual"] (ReqArg Flag_Qualification "QUAL")
       "qualification of names, one of \n'none' (default), 'full', 'local'\n'relative' or 'aliased'",
+    Option []  ["csv-coverage"] (NoArg Flag_CSVCoverage)
+      "output coverage information in Comma-Separated Value format",
     Option ['?']  ["help"]  (NoArg Flag_Help)
       "display this help and exit",
     Option ['V']  ["version"]  (NoArg Flag_Version)

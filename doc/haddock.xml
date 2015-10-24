@@ -930,6 +930,17 @@ $ pdflatex <replaceable>package</replaceable>.tex</screen>
 
       <varlistentry>
         <term>
+          <indexterm><primary><option>--csv-coverage</option></primary></indexterm>
+          <option>--csv-coverage</option>
+        </term>
+        <listitem>
+          <para>Output coverage information using CSV format, making it easier
+          to parse.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>
           <indexterm><primary><option>-?</option></primary></indexterm>
           <option>-?</option>
         </term>
